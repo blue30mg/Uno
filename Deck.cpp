@@ -2,6 +2,8 @@
 // Created by aldo_ on 11/5/2019.
 //
 #include <iostream>
+#include <algorithm>
+#include <random>
 #include <fstream>
 #include "Deck.h"
 
@@ -40,7 +42,23 @@ Deck::Deck(Card card) {
     deck.push_back(card);
 }
 
-void Deck::removeCard() {
+void Deck::removeCard(Card& c, Deck typeDeck) {
+    //add into
+    typeDeck.emplace_back(c);
+    //erase
+    deck.erase()
+
+
+}
+
+void Deck::addCard(Card& c) {
+    deck.emplace_back(c);
+}
+
+void Deck::shuffle(Deck& deck, RandomGenerator& rng) {
+    deck.shuffle(deck.begin(), deck.end(), )
+
+
 
 
 }

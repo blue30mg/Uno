@@ -16,9 +16,10 @@ public:
     Deck(std::string fileName);
     Deck(Card card);
 
-    void removeCard();
-    void addCard(Card c);
+    void removeCard(Card& c);
+    void addCard(Card& c);
     Card draw();
+    void shuffle(Deck& deck, RandomGenertator& rng);
 
 
 
@@ -29,6 +30,9 @@ public:
 
 private:
     std::vector<Card> deck;
+    std::vector<Card> discardPile;
+    std::vector<Card> startingHand;
+    Card phantomCard;
 
 
 
