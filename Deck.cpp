@@ -46,7 +46,7 @@ void Deck::removeCard(Card& c, Deck typeDeck) {
     //add into
     typeDeck.emplace_back(c);
     //erase
-    deck.erase()
+    deck.erase(deck.end(), c);
 
 
 }
