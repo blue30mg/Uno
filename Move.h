@@ -7,7 +7,10 @@
 
 
 class Move {
+public:
 
+
+private:
 };
 
 
