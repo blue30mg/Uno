@@ -13,13 +13,21 @@
 class Deck {
 
 public:
+
+
+
     Deck(std::string fileName);
     Deck(Card card);
 
-    void removeCard();
-    void addCard(Card c);
+    void removeCard(Card& c, Deck& typeDeck);
+    void addCard(Card& c);
+    void startingDeck(Deck& deck);
+    void discardDeck(Deck& deck);
+    void shuffle(Deck& deck, RandomNumberGenerator& rng, int seed);
     Card draw();
 
+    template<typename RandomNumberGenerator>
+    int getRandomInt(int min, int max, RandomNumberGenerator& rng);
 
 
 
@@ -29,6 +37,9 @@ public:
 
 private:
     std::vector<Card> deck;
+    std::vector<Card> discardPile;
+    std::vector<Card> startingHand;
+    Card phantomCard;
 
 
 

@@ -4,6 +4,6 @@
 
 #include "Player.h"
 
-Player::Player(std::string name, Deck &deck) : name(name) {
+Player::Player(std::string name, Deck &deck) : name(name),{
 
 }
