@@ -2,6 +2,7 @@
 // Created by aldo_ on 11/5/2019.
 //
 #include <iostream>
+#include <vector>
 #include <algorithm>
 #include <random>
 #include <fstream>
@@ -42,23 +43,40 @@ Deck::Deck(Card card) {
     deck.push_back(card);
 }
 
-void Deck::removeCard(Card& c, Deck typeDeck) {
+void Deck::removeCard(Card& c, Deck& typeDeck) {
     //add into
-    typeDeck.emplace_back(c);
-    //erase
-    deck.erase(deck.end(), c);
+    typeDeck.push_back(c);
+
+    std::vector<Card>::iterator it;
+    it = deck.end();
+    deck.erase(it);
 
 
 }
 
 void Deck::addCard(Card& c) {
     deck.emplace_back(c);
-}
-
-void Deck::shuffle(Deck& deck, RandomGenerator& rng) {
-    deck.shuffle(deck.begin(), deck.end(), )
-
-
-
 
 }
+
+template<typename RandomNumberGenerator>
+void Deck::shuffle(Deck &deck, RandomNumberGenerator& rng, int seed) {
+    std::minstd_rand generator(seed);
+    std::shuffle(deck.begin(), deck.end(), generator);
+
+}
+
+template<typename RandomNumberGenerator>
+int Deck::getRandomInt(int min, int max, RandomNumberGenerator &rng) {
+        std::uniform_int_distribution<int> dist(min, max);
+        return dist(rng);
+}
+
+
+template<typename RandomNumberGenerator>
+int getRandomInt(int min, int max, RandomNumberGenerator& rng) {
+    std::uniform_int_distribution<int> dist(min, max);
+    return dist(rng);
+}
+
+

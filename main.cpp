@@ -4,6 +4,7 @@
 #include <random>
 #include <string>
 #include "Deck.h"
+#include "Rules.h"
 
 
 int main(int argc, char* argv[]) {
@@ -11,7 +12,9 @@ int main(int argc, char* argv[]) {
     std::string deckfile = argv[1];
     std::string rulefile = argv[2];
 
-    std::minstd_rand random;
+
+
+
     int seed = std::chrono::system_clock::now().time_since_epoch().count();
 
     if(argc > 3){
@@ -19,6 +22,9 @@ int main(int argc, char* argv[]) {
     }else{
         time(nullptr);
     }
+
+    std::minstd_rand generator(seed);
+
 
 
 

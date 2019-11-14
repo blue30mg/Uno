@@ -3,3 +3,8 @@
 //
 
 #include "StartingHand.h"
+
+StartingHand::StartingHand(Deck deck) : Deck(deck){
+    //remove 7 random cards from deck
+
+}
